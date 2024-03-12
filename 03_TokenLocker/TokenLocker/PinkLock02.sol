@@ -1,11 +1,10 @@
 // SPDX-License-Identifier: MIT
-pragma solidity =0.8.4;
+pragma solidity 0.8.19;
 
-import "@openzeppelin/contracts/utils/Address.sol";
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
-
+import "./Address.sol";
+import "./IERC20.sol";
+import "./SafeERC20.sol";
+import "./EnumerableSet.sol";
 import "./IPinkLock.sol";
 import "./IUniswapV2Router02.sol";
 import "./IUniswapV2Pair.sol";
