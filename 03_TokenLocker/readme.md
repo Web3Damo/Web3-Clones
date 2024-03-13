@@ -1,5 +1,18 @@
 # Token Locker
 
+## 部署指南
+
+### 1. `TokenLocker/TokenLocker.sol`
+
+#### 1.1 编译选项(Compiler Settings)
+
+| Setting              | Value                        |
+| -------------------- | ---------------------------- |
+| Contract Name        | **PinkLock02**        |
+| Optimization Enabled | **Yes** with **999999** runs |
+| Compiler Version     | **0.8.19+commit.7dd6d404**   |
+| Evm Version          | default                      |
+
 ## 参考
 
 ### 合约
