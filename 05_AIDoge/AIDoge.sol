@@ -1,13 +1,5 @@
-/**
- *Submitted for verification at Arbiscan.io on 2023-04-11
-*/
-
-// File: @openzeppelin/contracts/token/ERC20/IERC20.sol
-
 // SPDX-License-Identifier: MIT
-// OpenZeppelin Contracts (last updated v4.6.0) (token/ERC20/IERC20.sol)
-
-pragma solidity ^0.8.0;
+pragma solidity 0.8.19;
 
 /**
  * @dev Interface of the ERC20 standard as defined in the EIP.
@@ -87,12 +79,6 @@ interface IERC20 {
     ) external returns (bool);
 }
 
-// File: @openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol
-
-// OpenZeppelin Contracts v4.4.1 (token/ERC20/extensions/IERC20Metadata.sol)
-
-pragma solidity ^0.8.0;
-
 /**
  * @dev Interface for the optional metadata functions from the ERC20 standard.
  *
@@ -115,12 +101,6 @@ interface IERC20Metadata is IERC20 {
     function decimals() external view returns (uint8);
 }
 
-// File: @openzeppelin/contracts/utils/Context.sol
-
-// OpenZeppelin Contracts v4.4.1 (utils/Context.sol)
-
-pragma solidity ^0.8.0;
-
 /**
  * @dev Provides information about the current execution context, including the
  * sender of the transaction and its data. While these are generally available
@@ -140,14 +120,6 @@ abstract contract Context {
         return msg.data;
     }
 }
-
-// File: @openzeppelin/contracts/token/ERC20/ERC20.sol
-
-// OpenZeppelin Contracts (last updated v4.8.0) (token/ERC20/ERC20.sol)
-
-pragma solidity ^0.8.0;
-
-
 
 /**
  * @dev Implementation of the {IERC20} interface.
@@ -530,12 +502,6 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
     ) internal virtual {}
 }
 
-// File: @openzeppelin/contracts/token/ERC20/extensions/draft-IERC20Permit.sol
-
-// OpenZeppelin Contracts v4.4.1 (token/ERC20/extensions/draft-IERC20Permit.sol)
-
-pragma solidity ^0.8.0;
-
 /**
  * @dev Interface of the ERC20 Permit extension allowing approvals to be made via signatures, as defined in
  * https://eips.ethereum.org/EIPS/eip-2612[EIP-2612].
@@ -591,12 +557,6 @@ interface IERC20Permit {
     // solhint-disable-next-line func-name-mixedcase
     function DOMAIN_SEPARATOR() external view returns (bytes32);
 }
-
-// File: @openzeppelin/contracts/utils/Address.sol
-
-// OpenZeppelin Contracts (last updated v4.8.0) (utils/Address.sol)
-
-pragma solidity ^0.8.1;
 
 /**
  * @dev Collection of functions related to the address type
@@ -838,14 +798,6 @@ library Address {
     }
 }
 
-// File: @openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol
-
-// OpenZeppelin Contracts (last updated v4.8.0) (token/ERC20/utils/SafeERC20.sol)
-
-pragma solidity ^0.8.0;
-
-
-
 /**
  * @title SafeERC20
  * @dev Wrappers around ERC20 operations that throw on failure (when the token
@@ -954,12 +906,6 @@ library SafeERC20 {
     }
 }
 
-// File: @openzeppelin/contracts/access/Ownable.sol
-
-// OpenZeppelin Contracts (last updated v4.7.0) (access/Ownable.sol)
-
-pragma solidity ^0.8.0;
-
 /**
  * @dev Contract module which provides a basic access control mechanism, where
  * there is an account (an owner) that can be granted exclusive access to
@@ -1036,13 +982,6 @@ abstract contract Ownable is Context {
         emit OwnershipTransferred(oldOwner, newOwner);
     }
 }
-
-// File: @openzeppelin/contracts/utils/structs/EnumerableSet.sol
-
-// OpenZeppelin Contracts (last updated v4.8.0) (utils/structs/EnumerableSet.sol)
-// This file was procedurally generated from scripts/generate/templates/EnumerableSet.js.
-
-pragma solidity ^0.8.0;
 
 /**
  * @dev Library for managing
@@ -1417,11 +1356,6 @@ library EnumerableSet {
     }
 }
 
-// File: contracts/interfaces/ICamelotFactory.sol
-
-
-pragma solidity >=0.5.0;
-
 interface ICamelotFactory {
     event PairCreated(
         address indexed token0,
@@ -1463,11 +1397,6 @@ interface ICamelotFactory {
         view
         returns (uint _ownerFeeShare, address _feeTo);
 }
-
-// File: contracts/interfaces/IUniswapV2Router01.sol
-
-
-pragma solidity >=0.6.2;
 
 interface IUniswapV2Router01 {
     function factory() external pure returns (address);
@@ -1566,11 +1495,6 @@ interface IUniswapV2Router01 {
     ) external;
 }
 
-// File: contracts/interfaces/ICamelotRouter.sol
-
-
-pragma solidity >=0.6.2;
-
 interface ICamelotRouter is IUniswapV2Router01 {
     function removeLiquidityETHSupportingFeeOnTransferTokens(
         address token,
@@ -1626,19 +1550,9 @@ interface ICamelotRouter is IUniswapV2Router01 {
     ) external view returns (uint[] memory amounts);
 }
 
-// File: contracts/interfaces/IJackpot.sol
-
-
-pragma solidity >=0.5.0;
-
 interface IJackpot {
     function tradeEvent(address sender, uint256 amount) external;
 }
-
-// File: contracts/interfaces/IWETH.sol
-
-
-pragma solidity >=0.5.0;
 
 interface IWETH {
     function totalSupply() external view returns (uint256);
@@ -1656,11 +1570,6 @@ interface IWETH {
     function withdraw(uint256) external;
 }
 
-// File: contracts/interfaces/IDogeBonusPool.sol
-
-
-pragma solidity >=0.5.0;
-
 interface IDogeBonusPool {
     function deposit(uint256 _pid, uint256 _amount) external;
     function withdraw(uint256 _pid, uint256 _amount) external;
@@ -1668,21 +1577,6 @@ interface IDogeBonusPool {
     function injectRewards(uint256 amount) external;
     function injectRewardsWithTime(uint256 amount, uint256 rewardsSeconds) external;
 }
-
-// File: contracts/token/AIDoge.sol
-
-
-pragma solidity =0.8.19;
-
-
-
-
-
-
-
-
-
-
 
 contract AIDoge is ERC20, Ownable {
     using SafeERC20 for IERC20;
