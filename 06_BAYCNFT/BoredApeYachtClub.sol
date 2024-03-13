@@ -1,12 +1,5 @@
-/**
- *Submitted for verification at Etherscan.io on 2021-04-22
-*/
-
-// File: @openzeppelin/contracts/utils/Context.sol
-
 // SPDX-License-Identifier: MIT
-
-pragma solidity >=0.6.0 <0.8.0;
+pragma solidity 0.8.19;
 
 /*
  * @dev Provides information about the current execution context, including the
@@ -20,7 +13,7 @@ pragma solidity >=0.6.0 <0.8.0;
  */
 abstract contract Context {
     function _msgSender() internal view virtual returns (address payable) {
-        return msg.sender;
+        return payable(msg.sender);
     }
 
     function _msgData() internal view virtual returns (bytes memory) {
@@ -28,12 +21,6 @@ abstract contract Context {
         return msg.data;
     }
 }
-
-// File: @openzeppelin/contracts/introspection/IERC165.sol
-
-
-
-pragma solidity >=0.6.0 <0.8.0;
 
 /**
  * @dev Interface of the ERC165 standard, as defined in the
@@ -55,13 +42,6 @@ interface IERC165 {
      */
     function supportsInterface(bytes4 interfaceId) external view returns (bool);
 }
-
-// File: @openzeppelin/contracts/token/ERC721/IERC721.sol
-
-
-
-pragma solidity >=0.6.2 <0.8.0;
-
 
 /**
  * @dev Required interface of an ERC721 compliant contract.
@@ -187,13 +167,6 @@ interface IERC721 is IERC165 {
     function safeTransferFrom(address from, address to, uint256 tokenId, bytes calldata data) external;
 }
 
-// File: @openzeppelin/contracts/token/ERC721/IERC721Metadata.sol
-
-
-
-pragma solidity >=0.6.2 <0.8.0;
-
-
 /**
  * @title ERC-721 Non-Fungible Token Standard, optional metadata extension
  * @dev See https://eips.ethereum.org/EIPS/eip-721
@@ -215,12 +188,6 @@ interface IERC721Metadata is IERC721 {
      */
     function tokenURI(uint256 tokenId) external view returns (string memory);
 }
-
-// File: @openzeppelin/contracts/token/ERC721/IERC721Enumerable.sol
-
-
-
-pragma solidity >=0.6.2 <0.8.0;
 
 
 /**
@@ -247,12 +214,6 @@ interface IERC721Enumerable is IERC721 {
     function tokenByIndex(uint256 index) external view returns (uint256);
 }
 
-// File: @openzeppelin/contracts/token/ERC721/IERC721Receiver.sol
-
-
-
-pragma solidity >=0.6.0 <0.8.0;
-
 /**
  * @title ERC721 token receiver interface
  * @dev Interface for any contract that wants to support safeTransfers
@@ -271,13 +232,6 @@ interface IERC721Receiver {
     function onERC721Received(address operator, address from, uint256 tokenId, bytes calldata data) external returns (bytes4);
 }
 
-// File: @openzeppelin/contracts/introspection/ERC165.sol
-
-
-
-pragma solidity >=0.6.0 <0.8.0;
-
-
 /**
  * @dev Implementation of the {IERC165} interface.
  *
@@ -295,7 +249,7 @@ abstract contract ERC165 is IERC165 {
      */
     mapping(bytes4 => bool) private _supportedInterfaces;
 
-    constructor () internal {
+    constructor () {
         // Derived contracts need only register support for their own interfaces,
         // we register support for ERC165 itself here
         _registerInterface(_INTERFACE_ID_ERC165);
@@ -326,12 +280,6 @@ abstract contract ERC165 is IERC165 {
         _supportedInterfaces[interfaceId] = true;
     }
 }
-
-// File: @openzeppelin/contracts/math/SafeMath.sol
-
-
-
-pragma solidity >=0.6.0 <0.8.0;
 
 /**
  * @dev Wrappers over Solidity's arithmetic operations with added overflow
@@ -544,12 +492,6 @@ library SafeMath {
     }
 }
 
-// File: @openzeppelin/contracts/utils/Address.sol
-
-
-
-pragma solidity >=0.6.2 <0.8.0;
-
 /**
  * @dev Collection of functions related to the address type
  */
@@ -735,12 +677,6 @@ library Address {
         }
     }
 }
-
-// File: @openzeppelin/contracts/utils/EnumerableSet.sol
-
-
-
-pragma solidity >=0.6.0 <0.8.0;
 
 /**
  * @dev Library for managing
@@ -1036,12 +972,6 @@ library EnumerableSet {
     }
 }
 
-// File: @openzeppelin/contracts/utils/EnumerableMap.sol
-
-
-
-pragma solidity >=0.6.0 <0.8.0;
-
 /**
  * @dev Library for managing an enumerable variant of Solidity's
  * https://solidity.readthedocs.io/en/latest/types.html#mapping-types[`mapping`]
@@ -1305,12 +1235,6 @@ library EnumerableMap {
     }
 }
 
-// File: @openzeppelin/contracts/utils/Strings.sol
-
-
-
-pragma solidity >=0.6.0 <0.8.0;
-
 /**
  * @dev String operations.
  */
@@ -1341,23 +1265,6 @@ library Strings {
         return string(buffer);
     }
 }
-
-// File: @openzeppelin/contracts/token/ERC721/ERC721.sol
-
-
-
-pragma solidity >=0.6.0 <0.8.0;
-
-
-
-
-
-
-
-
-
-
-
 
 /**
  * @title ERC721 Non-Fungible Token Standard basic implementation
@@ -1435,7 +1342,7 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Enumerable 
     /**
      * @dev Initializes the contract by setting a `name` and a `symbol` to the token collection.
      */
-    constructor (string memory name_, string memory symbol_) public {
+    constructor (string memory name_, string memory symbol_) {
         _name = name_;
         _symbol = symbol_;
 
@@ -1822,12 +1729,6 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Enumerable 
     function _beforeTokenTransfer(address from, address to, uint256 tokenId) internal virtual { }
 }
 
-// File: @openzeppelin/contracts/access/Ownable.sol
-
-
-
-pragma solidity >=0.6.0 <0.8.0;
-
 /**
  * @dev Contract module which provides a basic access control mechanism, where
  * there is an account (an owner) that can be granted exclusive access to
@@ -1848,7 +1749,7 @@ abstract contract Ownable is Context {
     /**
      * @dev Initializes the contract setting the deployer as the initial owner.
      */
-    constructor () internal {
+    constructor () {
         address msgSender = _msgSender();
         _owner = msgSender;
         emit OwnershipTransferred(address(0), msgSender);
@@ -1892,13 +1793,6 @@ abstract contract Ownable is Context {
     }
 }
 
-// File: contracts/BoredApeYachtClub.sol
-
-
-pragma solidity ^0.7.0;
-
-
-
 /**
  * @title BoredApeYachtClub contract
  * @dev Extends ERC721 Non-Fungible Token Standard basic implementation
@@ -1929,7 +1823,7 @@ contract BoredApeYachtClub is ERC721, Ownable {
 
     function withdraw() public onlyOwner {
         uint balance = address(this).balance;
-        msg.sender.transfer(balance);
+        payable(msg.sender).transfer(balance);
     }
 
     /**
